@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Login web Sheilita...</title>
+<!-- definicion de funciones de java script  -->
+<script type="text/javascript" language="JavaScript">
+function carga(){
+	<!-- importante ponerle id a cada componente  -->
+	document.getElementById("usuario").focus();
+}
+
+function valideDatos(){
+	var usuario = document.getElementById("usuario");
+	var passwar = document.getElementById("password");
+	if((usuario.value == "" || usuario.value == '' || usuario.value == null) && 
+			(password.value == "" || password.value == '' || password.value == null)){
+		alert("Ingresa tu usuario y password");
+		usuario.focus();
+		return false;
+		}else if(usuario.value == "" || usuario.value == '' || usuario.contains == null){
+			alert("Ingresa tu usuario");
+			usuario.focus();
+			return false;
+		} else if(password.value == "" || password.value == '' || password.value == null){
+			alert("Ingresa tu password");
+			usuario.focus();
+			return false;
+		}else {return true;}
+	
+}	
+</script>
+
+</head>
+
+<body onload="carga()">
+<!-- atributo de body que avisa cuando cargo la pagina  -->
+<p>HTML</p>
+<p>CSS</p>
+<p>JavaScript</p>
+<p>JSPS</p>
+<p>Servlets</p>
+<p>Servidor Web</p>
+<p>Servidor de Aplicaciones</p>
+
+<!-- valideDatos is from java script and return true or false-->
+<!-- si retorna true invoca a loginweb si retorna falso no-->
+<form action="loginWeb.jr" method="POST" onsubmit="return valideDatos();">
+<!-- el get send parameters from the web page and post idem but los ocult-->
+<table align="center">
+<tr>
+<td colspan="2" style="font-weight: bold; font-size: 18px">Ingresa tu Usuario y tu Contraseña</td>
+</tr>
+<tr>
+<td style="font-weight: bold; font-size: 12px; color: blue" align="right">Usuario : </td>
+<td><input type="text" name="usuario" id="usuario"> </td>
+</tr>
+<tr>
+<td style="font-weight: bold; font-size: 12px; color: blue" align="right">Password : </td>
+<td><input type="password" name="password" id="password"> </td>
+</tr>
+<tr>
+<td><input type="button" value="Cancelar" style="font-size: 14px; color: blue"> </td>
+<td><input type="submit" value="Aceptar" style="font-size: 14px; color: blue"> </td>
+</tr>
+</table>
+</form>
+
+</body>
+</html>
