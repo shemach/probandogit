@@ -2,14 +2,26 @@ package org.koushik.javabrains.messenger.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlRootElement;
+@Entity
 @XmlRootElement 
 
 public class Profile {
+	@Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
+	@Column
 	private String profileName;
+	@Column
 	private String firstName;
+	@Column
 	private String lastName;
+	@Column
 	private Date created;
 	
 	public Profile(){
