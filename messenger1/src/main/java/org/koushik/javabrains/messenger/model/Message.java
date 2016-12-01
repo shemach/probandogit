@@ -6,14 +6,26 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+
+@Entity
 @XmlRootElement
 public class Message {
-
+	
+	@Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
+	@Column
     private String message;
+	@Column
     private Date created;
+	@Column
     private String author;
     private Map<Long, Comment> comments = new HashMap<>();
     private List<Link> links = new ArrayList<>();

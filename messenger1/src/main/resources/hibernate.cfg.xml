@@ -11,8 +11,8 @@
   <property name="hibernate.show_sql">true</property>
   <property name="hibernate.format_sql">true</property>
 <!--   <property name="hibernate.hbm2ddl.auto">create</property> -->
-  <mapping class="org.koushik.javabrains.messenger.dao.MessageEntity"/>
-  <mapping class="org.koushik.javabrains.messenger.dao.ProfileEntity"/>
-  <mapping class="org.koushik.javabrains.messenger.dao.CommentEntity"/>
+  <mapping class="org.koushik.javabrains.messenger.model.Message"/>
+  <mapping class="org.koushik.javabrains.messenger.model.Profile"/>
+  <mapping class="org.koushik.javabrains.messenger.model.Comment"/>
  </session-factory>
 </hibernate-configuration>

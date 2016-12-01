@@ -26,23 +26,22 @@ public class MessageDAO {
 	        message.setMessage(beanm.getMessage());
 	        message.setCreated(beanm.getCreated());
 	        message.setAuthor(beanm.getAuthor());
-	        
 	        session.save(message);
 	    }
 	    	    
 	    public Message getMessage(long id){
 	    	Session session = SessionUtil.getSession();    
-	        Query query = session.createQuery("from messages where id=id");
+	        Query query = session.createQuery("from Message where id=id");
 	        Message message =  (Message) query.uniqueResult();
 			if (message == null) {
-				throw new DataNotFoundException("El mesnsaje " + id + " no ha sido encontrado.");
+				throw new DataNotFoundException("El mensaje " + id + " no ha sido encontrado.");
 			}
 			return message;
 	    }
 	    
 	    public List<Message> getAllMessages(){
 	        Session session = SessionUtil.getSession();    
-	        Query query = session.createQuery("from messages");
+	        Query query = session.createQuery("from Message");
 	        List<Message> messages =  query.list();
 	        return messages;
 	    }
@@ -50,9 +49,9 @@ public class MessageDAO {
 	    public int deleteMessage(long id) {
 	        Session session = SessionUtil.getSession();
 	        Transaction tx = session.beginTransaction();
-	        String hql = "delete from messages where id = :id";
+	        String hql = "delete from Message where id = :id";
 	        Query query = session.createQuery(hql);
-	        query.setInteger("id",id);
+	        query.setLong("id",id);
 	        int rowCount = query.executeUpdate();
 	        System.out.println("Rows affected: " + rowCount);
 	        tx.commit();
@@ -65,9 +64,9 @@ public class MessageDAO {
 	               return 0;  
 	         Session session = SessionUtil.getSession();
 	            Transaction tx = session.beginTransaction();
-	            String hql = "update message set message = :message, author=:author, created =: created where id = :id";
+	            String hql = "update Message set message = :message, author=:author, created =:created where id = :id";
 	            Query query = session.createQuery(hql);
-	            query.setInteger("id",id);
+	            query.setLong("id",id);
 	            query.setString("message",msj.getMessage());
 	            query.setDate("created",msj.getCreated());
 	            query.setString("author",msj.getAuthor());

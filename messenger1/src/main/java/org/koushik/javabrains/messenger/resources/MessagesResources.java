@@ -33,7 +33,6 @@ import org.koushik.javabrains.messenger.service.MessageService;
 
 public class MessagesResources {
 
-	MessageDAO messageDAO = new MessageDAO();
 	
 	/*@GET
 	@Produces(MediaType.APPLICATION_JSON)
@@ -63,21 +62,22 @@ public class MessagesResources {
 
 	@POST
 	public Response addMessage(Message msj) {
-		MessageEntity message= new MessageEntity();
-		message.
-		msj.setMessage(msj.getMessage());;
+		MessageDAO message= new MessageDAO();
+		msj.setMessage(msj.getMessage());
 		msj.setAuthor(msj.getAuthor());
 		msj.setCreated(msj.getCreated());
+		message.addMessage(msj);
 		return Response.ok().build();
 	}
 	
-	/*
-	 @PUT//VEeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeR
+	
+	@PUT
 	@Path("/{messageId}")
-	public Message updateMessage(@PathParam("messageId") long id, Message message) {
+	public int updateMessage(@PathParam("messageId") long id, Message message) {
+		MessageDAO dao= new MessageDAO();
 		message.setId(id);
-		return messageDAO.updateMessage(id, message);
-	}*/
+		return dao.updateMessage(id, message);
+	}
 	
 	@DELETE
 	@Path("/{messageId}")
@@ -93,8 +93,9 @@ public class MessagesResources {
 	
 	@GET
 	@Path("/{messageId}")
-	public Message getMessage(@PathParam("messageId") long id) {	
-	return messageDAO.getMessage(id);	
+	public Message getMessage(@PathParam("messageId") long id) {
+	MessageDAO message = new MessageDAO();
+	return message.getMessage(id);	
 	}
 	
 	
