@@ -20,6 +20,7 @@ import javax.ws.rs.core.UriInfo;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.koushik.javabrains.messenger.dao.MessageDAO;
+import org.koushik.javabrains.messenger.dao.MessageEntity;
 import org.koushik.javabrains.messenger.dao.SessionUtil;
 import org.koushik.javabrains.messenger.exception.DataNotFoundException;
 import org.koushik.javabrains.messenger.model.Message;
@@ -62,6 +63,8 @@ public class MessagesResources {
 
 	@POST
 	public Response addMessage(Message msj) {
+		MessageEntity message= new MessageEntity();
+		message.
 		msj.setMessage(msj.getMessage());;
 		msj.setAuthor(msj.getAuthor());
 		msj.setCreated(msj.getCreated());
