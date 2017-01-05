@@ -1,0 +1,11 @@
+{
+  "name": "curso_angular-cf",
+  "version": "1.0.0",
+  "description": "vamos a aprender angular",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "negri",
+  "license": "ISC"
+}
